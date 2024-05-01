@@ -16,7 +16,7 @@ const StackNavigation = ({ ListComponent, DetailComponent }: IStackNavigationPro
             }} component={ListComponent} />
             <Stack.Screen name="Detail" options={{
                 title: "Detail"
-            }} component={DetailComponent} />
+            }} getComponent={() => DetailComponent} />
         </Stack.Navigator>
     )
 }
