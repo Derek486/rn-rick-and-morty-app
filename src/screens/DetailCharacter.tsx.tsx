@@ -1,9 +1,11 @@
 import React from 'react'
 import { View, Text, Image } from 'react-native'
 import styles from '../styles/styles';
+import { Character } from '../models/Character';
+import { IDetailModelProp, IDetailProps, IDetailScreenProp } from '../types/IDetailScreenProps';
 
-const DetailCharacter = (props: any) => {
-  const item = props.item ?? props?.route?.params?.item
+const DetailCharacter = (props: IDetailProps) => {
+  const item = ((props as IDetailModelProp).item ?? ((props as IDetailScreenProp)?.route?.params?.item)) as Character
   return (
     <View style={styles.itemContainer}>
       <Image source={{ uri: item.image }} style={styles.image} />

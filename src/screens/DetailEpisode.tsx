@@ -1,8 +1,10 @@
 import { Text, View } from "react-native";
 import styles from "../styles/styles";
+import { IDetailModelProp, IDetailProps, IDetailScreenProp } from "../types/IDetailScreenProps";
+import { Episode } from "../models/Episode";
 
-const DetailEpisode = (props: any) => {
-    const item = props.item ?? props?.route?.params?.item
+const DetailEpisode = (props: IDetailProps) => {
+    const item = ((props as IDetailModelProp).item ?? ((props as IDetailScreenProp)?.route?.params?.item)) as Episode
     return (
         <View style={styles.textContainer}>
             <Text style={styles.name}>{item.name}</Text>

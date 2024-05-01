@@ -1,7 +1,8 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+import { RootStackNavigatorParamsList } from "../types/RootStackNavigatorParamsList";
 
-const Stack = createStackNavigator()
+const Stack = createStackNavigator<RootStackNavigatorParamsList>()
 
 interface IStackNavigationProps {
     ListComponent: React.ComponentType,
@@ -16,7 +17,7 @@ const StackNavigation = ({ ListComponent, DetailComponent }: IStackNavigationPro
             }} component={ListComponent} />
             <Stack.Screen name="Detail" options={{
                 title: "Detail"
-            }} getComponent={() => DetailComponent} />
+            }} component={DetailComponent} />
         </Stack.Navigator>
     )
 }

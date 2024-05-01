@@ -6,9 +6,11 @@ import useService from '../hooks/useService';
 import styles from '../styles/styles';
 import { useNavigation } from '@react-navigation/native';
 import DetailLocation from './DetailLocation';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackNavigatorParamsList } from '../types/RootStackNavigatorParamsList';
 
 const LocationsScreen = () => {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<StackNavigationProp<RootStackNavigatorParamsList>>();
   const locations = useService({ Service: LocationsService });
 
   const handleLocationPress = (item: Location) => {

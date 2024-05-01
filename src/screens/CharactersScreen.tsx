@@ -6,9 +6,11 @@ import useService from '../hooks/useService';
 import styles from '../styles/styles';
 import { useNavigation } from '@react-navigation/native';
 import DetailCharacter from './DetailCharacter.tsx';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackNavigatorParamsList } from '../types/RootStackNavigatorParamsList';
 
 const CharactersScreen = () => {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<StackNavigationProp<RootStackNavigatorParamsList>>();
   const characters = useService({ Service: CharactersService });
 
   const handleCharacterPress = (item: Character) => {

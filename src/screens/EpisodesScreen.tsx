@@ -6,9 +6,11 @@ import useService from '../hooks/useService';
 import styles from '../styles/styles';
 import { useNavigation } from '@react-navigation/native';
 import DetailEpisode from './DetailEpisode';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackNavigatorParamsList } from '../types/RootStackNavigatorParamsList';
 
 const EpisodesScreen = () => {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<StackNavigationProp<RootStackNavigatorParamsList>>();
   const episodes = useService({ Service: EpisodesService });
 
   const handleEpisodePress = (item: Episode) => {
